@@ -1,0 +1,16 @@
+/* Custom styles to override Bootstrap defaults */
+
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Override Bootstrap's font-family */
+:root {
+  --bs-font-sans-serif: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bs-body-font-family: var(--bs-font-sans-serif);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* You can add more custom styles here */

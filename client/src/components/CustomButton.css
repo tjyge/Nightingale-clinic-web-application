@@ -1,0 +1,68 @@
+/* Custom Button Component styles */
+.custom-button {
+  color: #222222;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  line-height: 1;
+  height: fit-content;
+  min-height: 36px; /* Consistent height */
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s; /* Added color and transform */
+}
+
+/* Default (White) Variant */
+.custom-button-white {
+  background-color: #ffffff;
+  color: #222222;
+  border: 1px solid #bebebe;
+}
+
+.custom-button-white:hover {
+  background-color: #f5f5f5;
+  border-color: #a0a0a0;
+  transform: translateY(-2px);
+}
+
+/* Black Variant */
+.custom-button-black {
+  background-color: #222222;
+  color: #ffffff;
+  border: 1px solid #222222;
+}
+
+.custom-button-black:hover {
+  background-color: #333333; /* Darker gray on hover */
+  border-color: #333333;
+  transform: translateY(-2px);
+}
+
+/* Red Variant */
+.custom-button-red {
+  background-color: #FF6868; /* Bootstrap danger red */
+  color: #ffffff;
+  border: 1px solid #FF6868;
+}
+
+.custom-button-red:hover {
+  background-color: #FF6868; /* Darker red on hover */
+  border-color: #FF6868;
+  transform: translateY(-2px);
+}
+
+/* Icon styles remain the same */
+.button-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+/* Text styles remain the same */
+.button-text {
+  white-space: nowrap;
+}
