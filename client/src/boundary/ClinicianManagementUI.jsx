@@ -20,7 +20,9 @@ function ClinicianManagementUI() {
   // 1️⃣ View all patients
   const fetchPatients = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/clinician/patients');
+      const res = await fetch('http://localhost:5000/api/clinician/patients',{
+        headers: { 'x-user-email': localStorage.getItem('email') }
+      });
       const data = await res.json();
       setPatients(data);
     } catch (err) {
@@ -32,7 +34,9 @@ function ClinicianManagementUI() {
   const fetchPatientNotes = async (patient) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/clinician/patients/${patient.patient_id}/notes`
+        `http://localhost:5000/api/clinician/patients/${patient.patient_id}/notes`,{
+        headers: { 'x-user-email': localStorage.getItem('email') }
+      }
       );
       const data = await res.json();
       setNotes(data);

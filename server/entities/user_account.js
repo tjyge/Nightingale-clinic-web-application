@@ -2,6 +2,14 @@ const db = require('../db');
 
 class UserAccount {
 
+  async findByEmail(email) {
+    const [rows] = await db.execute(
+      'SELECT * FROM user_account WHERE email = ?',
+      [email]
+    );
+    return rows[0]; // undefined if not found
+  }
+
   // LOGIN (PLAINTEXT PASSWORD)
   async verifyUserAccount(email, password) {
     const [rows] = await db.execute(

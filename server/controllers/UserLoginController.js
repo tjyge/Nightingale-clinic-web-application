@@ -26,7 +26,8 @@ class UserLoginController {
       user: {
         user_id: user.user_id,
         user_type: user.user_type,
-        clinic_id: user.clinic_id
+        clinic_id: user.clinic_id,
+        email: user.email,
       }
     });
   }

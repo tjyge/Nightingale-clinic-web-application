@@ -16,7 +16,9 @@ function StaffManagementUI() {
   // 1️⃣ View all patients
   const fetchPatients = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/staff/patients');
+      const res = await fetch('http://localhost:5000/api/staff/patients', {
+      headers: { 'x-user-email': localStorage.getItem('email') }
+    });
       const data = await res.json();
       setPatients(data);
     } catch (err) {
@@ -28,7 +30,9 @@ function StaffManagementUI() {
   const fetchPatientNotes = async (patient) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/staff/patients/${patient.patient_id}/notes`
+        `http://localhost:5000/api/staff/patients/${patient.patient_id}/notes`,{
+        headers: { 'x-user-email': localStorage.getItem('email') }
+      }
       );
       const data = await res.json();
       setNotes(data);

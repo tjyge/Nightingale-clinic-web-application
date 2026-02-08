@@ -13,7 +13,9 @@ function PatientManagementUI() {
   // Fetch patient-visible notes
   const viewMyNotes = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/patient/notes');
+      const res = await fetch('http://localhost:5000/api/patient/notes',{
+        headers: { 'x-user-email': localStorage.getItem('email') }
+      });
       const data = await res.json();
       setNotes(data);
     } catch (err) {

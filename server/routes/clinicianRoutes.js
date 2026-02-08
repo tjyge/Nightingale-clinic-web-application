@@ -11,7 +11,7 @@ const {
 const auth = require('../middlewares/auth');
 
 router.get('/patients', auth, ClinicianViewPatientsController.viewPatients);
-router.get('/patients/:id/notes', auth, ClinicianViewPatientNotesController.viewPatientNotes);
+router.get('/patients/:patient_id/notes', auth, ClinicianViewPatientNotesController.viewPatientNotes);
 router.post('/notes', auth, ClinicianAddNoteController.addClinicianNote);
 router.put('/notes/:note_id', auth, ClinicianUpdateNoteController.updateClinicianNote);
 

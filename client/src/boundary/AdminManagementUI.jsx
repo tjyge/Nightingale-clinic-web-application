@@ -26,7 +26,9 @@ function AdminManagementUI() {
   // 1️⃣ View all users
   const fetchUsers = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/users/all');
+      const res = await fetch('http://localhost:5000/api/users/all',{
+        headers: { 'x-user-email': localStorage.getItem('email') }
+      });
       const data = await res.json();
       setUsers(data);
     } catch (err) {
@@ -38,7 +40,9 @@ function AdminManagementUI() {
   const searchUsers = async () => {
     try {
       const query = searchEmail ? `?email=${searchEmail}` : '';
-      const res = await fetch(`http://localhost:5000/api/users${query}`);
+      const res = await fetch(`http://localhost:5000/api/users${query}`,{
+        headers: { 'x-user-email': localStorage.getItem('email') }
+      });
       const data = await res.json();
       setUsers(data);
     } catch (err) {
@@ -101,7 +105,10 @@ function AdminManagementUI() {
     try {
       const res = await fetch(
         `http://localhost:5000/api/users/${user_id}`,
-        { method: 'DELETE' }
+        {
+          method: 'DELETE',
+          headers: { 'x-user-email': localStorage.getItem('email') }
+        }
       );
 
       const data = await res.json();
