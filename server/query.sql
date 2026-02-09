@@ -10,3 +10,6 @@ SELECT * FROM staff;
 SELECT * FROM clinician;
 SELECT * FROM admin;
 SELECT * FROM patient_notes;
+
+DESCRIBE user_account
+
