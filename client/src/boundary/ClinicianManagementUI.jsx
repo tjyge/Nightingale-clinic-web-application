@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import CustomTable from '../components/CustomTable';
 import './ClinicianManagementUI.css';
+import Navbar from '../components/Navbar';
 
 function ClinicianManagementUI() {
   const [patients, setPatients] = useState([]);
@@ -16,6 +17,8 @@ function ClinicianManagementUI() {
 
   const [newNoteText, setNewNoteText] = useState('');
   const [isPatientVisible, setIsPatientVisible] = useState(false);
+
+  const [showViewModal, setShowViewModal] = useState(false);
 
   // 1️⃣ View all patients
   const fetchPatients = async () => {
@@ -108,7 +111,8 @@ function ClinicianManagementUI() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container" style={{ marginTop: '80px' }}>
+      <Navbar />
       <h2>Clinician Dashboard</h2>
 
       {/* Patients table */}
@@ -148,7 +152,8 @@ function ClinicianManagementUI() {
                   setSelectedNote(note);
                   setShowEditModal(true);
                 } else {
-                  alert('You can only edit clinician notes.');
+                  setSelectedNote(note);
+                  setShowViewModal(true);
                 }
               }}
             />
@@ -239,6 +244,33 @@ function ClinicianManagementUI() {
               </button>
               <button className="btn btn-create" onClick={updateClinicianNote}>
                 Update Note
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* View-Only Modal for Clinician/AI Notes */}
+      {showViewModal && selectedNote && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h3>View Note ({selectedNote.note_type})</h3>
+              <button className="close-button" onClick={() => setShowViewModal(false)}>×</button>
+            </div>
+
+            <div className="form-group">
+              <label>Note</label>
+              <textarea
+                className="form-control"
+                value={selectedNote.note_text}
+                disabled  // ✅ Read-only
+              />
+            </div>
+
+            <div className="modal-footer">
+              <button className="btn btn-cancel" onClick={() => setShowViewModal(false)}>
+                Close
               </button>
             </div>
           </div>

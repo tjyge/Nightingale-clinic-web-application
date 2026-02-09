@@ -71,7 +71,7 @@ function LoginContainer({ onLogin }) {
   return (
     <div style={loginContainerStyle}>
       <div style={headerStyle}>
-        <div style={welcomeStyle}>Welcome Back 👋</div>
+        <div style={welcomeStyle}>💊 Welcome Back 🩺</div>
         <div style={subtitleStyle}>Sign in to get started</div>
       </div>
 

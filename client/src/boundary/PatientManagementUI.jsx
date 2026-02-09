@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import CustomTable from '../components/CustomTable'; 
 // reuse table component for pencil icon
 import './ClinicianManagementUI.css'; // reuse existing styles
+import Navbar from '../components/Navbar';
 
 function PatientManagementUI() {
   const [notes, setNotes] = useState([]);
@@ -33,7 +34,8 @@ function PatientManagementUI() {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{ marginTop: '80px' }}>
+      <Navbar />
       <h2>My Medical Notes</h2>
 
       <CustomTable

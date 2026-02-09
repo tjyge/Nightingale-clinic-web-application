@@ -14,6 +14,18 @@ module.exports = async function auth(req, res, next) {
     return res.status(401).json({ error: 'Invalid user' });
   }
 
+  // ✅ Fetch patient_id if user is patient
+  if (user.user_type === 'patient') {
+    const [patientRows] = await db.execute(
+      'SELECT patient_id FROM patient WHERE user_id = ?',
+      [user.user_id]
+    );
+    
+    if (patientRows.length > 0) {
+      user.patient_id = patientRows[0].patient_id;
+    }
+  }
+
   // ✅ Fetch staff_id if user is staff
   if (user.user_type === 'staff') {
     const [staffRows] = await db.execute(

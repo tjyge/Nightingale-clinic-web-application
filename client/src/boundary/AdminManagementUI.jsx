@@ -5,6 +5,7 @@ import CustomTable from '../components/CustomTable';
 import CustomButton from '../components/CustomButton';
 import SearchBar from '../components/SearchBar';
 import './AdminManagementUI.css';
+import Navbar from '../components/Navbar';
 
 function AdminManagementUI() {
   const [users, setUsers] = useState([]);
@@ -142,7 +143,8 @@ function AdminManagementUI() {
   }, [searchEmail]);
 
   return (
-    <div className="container">
+    <div className="container" style={{ marginTop: '80px' }}>
+      <Navbar />
       <h2>Admin – User Management</h2>
 
       <div className="top-bar">
