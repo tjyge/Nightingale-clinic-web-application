@@ -4,7 +4,7 @@ const mysql = require('mysql2/promise');
 const db = mysql.createPool({
   host: 'localhost',
   user: 'root',
-  password: 'Tham1234!', // Match your database.sql password
+  password: '', // Match your database.sql password
   database: 'clinic_app', // Match your database.sql DB name
 });
 
